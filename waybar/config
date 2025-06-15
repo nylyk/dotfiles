@@ -1,0 +1,149 @@
+{
+  "layer": "top",
+  "position": "top",
+  "output": "DP-1",
+  "margin": "8 8 -2 8",
+  "spacing": 0,
+  "modules-left": [
+    "hyprland/workspaces",
+    "custom/music"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "tray",
+    "cpu",
+    "memory",
+    "pulseaudio",
+    "custom/notification",
+    "group/power"
+  ],
+  "hyprland/workspaces": {
+    "sort-by-name": true,
+    "format": " {icon} ",
+    "format-icons": {
+      "active": "",
+      "default": ""
+    }
+  },
+  "custom/music": {
+    "interval": 3,
+    "format": "  {}",
+    "escape": true,
+    "exec": "playerctl metadata --format='{{artist}} - {{title}}'",
+    "on-click": "playerctl play-pause",
+    "max-length": 40
+  },
+  "clock": {
+    "interval": 1,
+    "format": "  {:%a %d %B      %H:%M:%S}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "weeks-pos": "left",
+      "on-scroll": 1,
+      "on-click-right": "mode",
+      "format": {
+        "months": "<span color='#f5c2e7'><b>{}</b></span>",
+        "days": "<span color='#cdd6f4'><b>{}</b></span>",
+        "weeks": "<span color='#b4befe'><b>{:%W}</b></span>",
+        "weekdays": "<span color='#b4befe'><b>{}</b></span>",
+        "today": "<span color='#f38ba8'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-scroll-up": "shift_down",
+      "on-scroll-down": "shift_up"
+    },
+    "on-click": "gnome-clocks"
+  },
+  "tray": {
+    "icon-size": 21,
+    "spacing": 10
+  },
+  "cpu": {
+    "interval": 3,
+    "format": " {usage}%",
+    "on-click": "kitty btop"
+  },
+  "memory": {
+    "interval": 3,
+    "format": " {percentage}%",
+    "on-click": "kitty btop"
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "",
+    "format-icons": {
+      "default": [
+        "",
+        "",
+        " "
+      ]
+    },
+    "on-click": "pavucontrol",
+    "scroll-step": 2
+  },
+  "custom/notification": {
+    "format": "{icon}",
+    "tooltip": false,
+    "format-icons": {
+      "notification": "󰂚<span foreground='#f38ba8'><sup></sup></span>",
+      "none": "󰂚",
+      "dnd-notification": "󰂛<span foreground='#f38ba8'><sup></sup></span>",
+      "dnd-none": "󰂛",
+      "inhibited-notification": "󰂚<span foreground='#f38ba8'><sup></sup></span>",
+      "inhibited-none": "󰂚",
+      "dnd-inhibited-notification": "󰂛<span foreground='#f38ba8'><sup></sup></span>",
+      "dnd-inhibited-none": "󰂛"
+    },
+    "return-type": "json",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+  "custom/exit": {
+    "format": "󰍃",
+    "tooltip": false,
+    "on-click": "~/./.scripts/confirm_prompt.nu --title Exit --text 'Do you want to exit Hyprland?' --icon system-log-out --confirm Exit --action 'hyprctl dispatch exit'"
+  },
+  "custom/suspend": {
+    "format": "󰒲",
+    "tooltip": false,
+    "on-click": "systemctl suspend"
+  },
+  "custom/hibernate": {
+    "format": "󰤄",
+    "tooltip": false,
+    "on-click": "systemctl hibernate"
+  },
+  "custom/reboot": {
+    "format": "󰜉",
+    "tooltip": false,
+    "on-click": "~/./.scripts/confirm_prompt.nu --title Reboot --text 'Do you really want to reboot?' --icon system-reboot --confirm Reboot --action 'systemctl reboot'"
+  },
+  "custom/power": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "~/./.scripts/confirm_prompt.nu --title Shutdown --text 'Do you really want to shutdown?' --icon system-shutdown --confirm Shutdown --action 'shutdown now'"
+  },
+  "group/power": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/power",
+      "custom/exit",
+      "custom/suspend",
+      "custom/hibernate",
+      "custom/reboot"
+    ],
+    "drawer": {
+      "transition-duration": 300,
+      "transition-left-to-right": false,
+      "children-class": "not-power"
+    }
+  }
+}

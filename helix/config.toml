@@ -1,0 +1,34 @@
+theme = "custom"
+
+[editor]
+color-modes = true
+shell = ["nu", "-c"]
+bufferline = "always"
+line-number = "relative"
+completion-timeout = 50
+
+[editor.statusline]
+left = ["mode", "spinner", "read-only-indicator", "file-modification-indicator", "version-control"]
+center = ["diagnostics", "file-name"]
+right = ["workspace-diagnostics", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
+[editor.indent-guides]
+render = true
+character = "┊"
+
+[keys.normal.space]
+"q" = ":bc"
+
+[keys.insert]
+"C-space" = "completion"
