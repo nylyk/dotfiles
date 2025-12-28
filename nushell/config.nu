@@ -26,5 +26,4 @@ alias ? = echo $env.LAST_EXIT_CODE
 alias ls = eza
 alias ll = eza -l
 alias la = eza -la
-alias y = yazi
 alias ssh_kitty = kitty +kitten ssh
