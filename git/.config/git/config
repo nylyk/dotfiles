@@ -1,0 +1,8 @@
+[user]
+  email = hi@nylyk.com
+  name = nylyk
+  signingkey = 399CC0B428B6334C
+[commit]
+  gpgsign = true
+[init]
+  defaultBranch = main
