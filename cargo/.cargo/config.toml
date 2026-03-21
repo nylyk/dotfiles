@@ -1,0 +1,7 @@
+[build]
+rustflags = ["-C", "target-cpu=native", "-C", "link-arg=-fuse-ld=mold"]
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+strip = "symbols"
