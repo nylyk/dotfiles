@@ -36,6 +36,7 @@
 #tray,
 #cpu,
 #memory,
+#battery,
 #pulseaudio {
   background: rgba(88, 91, 112, 0.35); /* surface2 */
   margin: 5px 0;
@@ -59,6 +60,12 @@
 
 #memory {
   color: #a6e3a1; /* green */
+  border-radius: 0;
+  padding-right: 4px;
+}
+
+#battery {
+  color: #f38ba8; /* red */
   border-radius: 0;
   padding-right: 4px;
 }
