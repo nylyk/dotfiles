@@ -96,7 +96,8 @@
       ]
     },
     "on-click": "pavucontrol",
-    "scroll-step": 2
+    "scroll-step": 5,
+    "smooth-scrolling-threshold": 2,
   },
   "custom/suspend": {
     "format": "󰒲",
