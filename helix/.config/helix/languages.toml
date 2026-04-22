@@ -1,0 +1,49 @@
+[language-server.tailwindcss-ls]
+command = "tailwindcss-language-server"
+args = ["--stdio"]
+
+[[language]]
+name = "javascript"
+auto-format = true
+formatter = { command = "prettier", args = ["--parser", "javascript"] }
+language-servers = ["typescript-language-server"]
+
+[[language]]
+name = "jsx"
+auto-format = true
+formatter = { command = "prettier", args = ["--parser", "javascript"] }
+language-servers = ["typescript-language-server", "tailwind-ls"]
+
+[[language]]
+name = "typescript"
+auto-format = true
+formatter = { command = "prettier", args = ["--parser", "typescript"] }
+language-servers = ["typescript-language-server"]
+
+[[language]]
+name = "tsx"
+auto-format = true
+formatter = { command = "prettier", args = ["--parser", "typescript"] }
+language-servers = ["typescript-language-server", "tailwindcss-ls"]
+
+[[language]]
+name = "html"
+auto-format = true
+language-servers = ["vscode-html-language-server", "tailwind-ls"]
+formatter = { command = "prettier", args = ["--parser", "html"] }
+
+[[language]]
+name = "css"
+auto-format = true 
+language-servers = ["vscode-css-language-server", "tailwindcss-ls"]
+formatter = { command = "prettier", args = ["--parser", "css"] }
+
+[[language]]
+name = "rust"
+auto-format = true
+formatter = { command = "rustfmt", args = ["--edition", "2024"] }
+
+[[language]]
+name = "sql"
+formatter = { command = "pg_format", args = ["--type-case", "2"] }
+auto-format = true
