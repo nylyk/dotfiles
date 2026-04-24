@@ -17,18 +17,15 @@
 }
 
 #workspaces button {
-  color: #b4befe; /* lavender */
+  color: #9399b2; /* overlay2 */
   border-radius: 10px;
   padding: 3px 4px;
   font-weight: 700;
 }
 
-#workspaces button.active {
-  color: #f5c2e7; /* pink */
-}
-
+#workspaces button.active,
 #workspaces button:hover {
-  color: #f5c2e7; /* pink */
+  color: #89b4fa; /* blue */
 }
 
 #custom-music,
