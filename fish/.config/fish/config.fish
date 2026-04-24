@@ -2,6 +2,7 @@ set -U fish_greeting ""
 
 set -gx EDITOR hx
 set -gx GPG_TTY (tty)
+set -gx SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.socket
 
 set -gx CARGO_HOME "$HOME/.cargo"
 set -gx PNPM_HOME "$HOME/.local/share/pnpm"
