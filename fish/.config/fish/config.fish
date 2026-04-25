@@ -1,4 +1,14 @@
-set -U fish_greeting ""
+set -g fish_greeting ""
+
+set -g hydro_symbol_start "\n"
+set -g hydro_symbol_prompt ❯
+set -g hydro_color_prompt magenta
+set -g hydro_color_git magenta
+set -g hydro_color_pwd blue
+set -g hydro_color_duration yellow
+set -g hydro_color_error red
+set -g hydro_multiline true
+set -g hydro_cmd_duration_threshold 5000
 
 set -gx EDITOR hx
 set -gx GPG_TTY (tty)
@@ -11,9 +21,10 @@ fish_add_path $HOME/.local/bin
 fish_add_path $CARGO_HOME/bin
 fish_add_path $PNPM_HOME
 
-fastfetch
-starship init fish | source
-
 alias ls=eza
 alias ll="eza -l"
 alias la="eza -la"
+
+if status is-interactive
+    fastfetch
+end
