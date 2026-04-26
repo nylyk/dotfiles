@@ -11,6 +11,8 @@ set -g hydro_multiline true
 set -g hydro_cmd_duration_threshold 5000
 
 set -gx EDITOR hx
+set -gx MANPAGER "sh -c 'col -bx | bat -l man -p'"
+set -gx MANROFFOPT -c
 set -gx GPG_TTY (tty)
 set -gx SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.socket
 
@@ -21,10 +23,10 @@ fish_add_path $HOME/.local/bin
 fish_add_path $CARGO_HOME/bin
 fish_add_path $PNPM_HOME
 
-alias ls=eza
-alias ll="eza -l"
-alias la="eza -la"
+alias ls="eza -la --group-directories-first"
 
 if status is-interactive
     fastfetch
 end
+
+zoxide init fish | source
