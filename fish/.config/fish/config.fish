@@ -24,6 +24,7 @@ fish_add_path $CARGO_HOME/bin
 fish_add_path $PNPM_HOME
 
 alias ls="eza -la --group-directories-first"
+alias cd="z"
 
 if status is-interactive
     fastfetch

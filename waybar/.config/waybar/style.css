@@ -3,21 +3,21 @@
 }
 
 #waybar {
-  background: rgba(17, 17, 27, 0.65); /* crust */
-  color: #cdd6f4; /* text */
+  background: rgba(40, 40, 40, 0.65); /* bg0 */
+  color: #d4be98; /* fg0 */
   font-family: NotoSans Nerd Font;
   font-size: 15px;
   font-weight: 500;
 }
 
 #workspaces {
-  background: rgba(88, 91, 112, 0.35); /* surface2 */
+  background: rgba(90, 82, 76, 0.35); /* bg5 */
   margin: 5px 7px;
   border-radius: 10px;
 }
 
 #workspaces button {
-  color: #9399b2; /* overlay2 */
+  color: #928374; /* grey1 */
   border-radius: 10px;
   padding: 3px 4px;
   font-weight: 700;
@@ -25,7 +25,7 @@
 
 #workspaces button.active,
 #workspaces button:hover {
-  color: #89b4fa; /* blue */
+  color: #d8a657; /* yellow */
 }
 
 #custom-music,
@@ -35,14 +35,14 @@
 #memory,
 #battery,
 #pulseaudio {
-  background: rgba(88, 91, 112, 0.35); /* surface2 */
+  background: rgba(90, 82, 76, 0.35); /* bg5 */
   margin: 5px 0;
   padding: 0 10px;
   border-radius: 10px;
 }
 
 #custom-music {
-  color: #f9e2af; /* yellow */
+  color: #d4be98; /* fg0 */
 }
 
 #tray {
@@ -50,31 +50,31 @@
 }
 
 #cpu {
-  color: #89b4fa; /* blue */
+  color: #7daea3; /* blue */
   border-radius: 10px 0 0 10px;
   padding-right: 4px;
 }
 
 #memory {
-  color: #a6e3a1; /* green */
+  color: #a9b665; /* green */
   border-radius: 0;
   padding-right: 4px;
 }
 
 #battery {
-  color: #f38ba8; /* red */
+  color: #ea6962; /* red */
   border-radius: 0;
   padding-right: 4px;
 }
 
 #pulseaudio {
-  color: #fab387; /* peach */
+  color: #e78a4e; /* orange */
   border-radius: 0 10px 10px 0;
   margin-right: 15px;
 }
 
 #custom-power {
-  color: #f38ba8; /* red */
+  color: #ea6962; /* red */
   font-size: 18px;
   margin-right: 16px;
 }
