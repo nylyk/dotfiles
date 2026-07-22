@@ -1,4 +1,5 @@
 set -g fish_greeting ""
+set -g fish_pager_color_progress green
 
 set -g hydro_symbol_start "\n"
 set -g hydro_symbol_prompt ❯
