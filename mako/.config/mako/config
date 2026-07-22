@@ -1,0 +1,21 @@
+output=DP-1
+width=350
+margin=10
+padding=12
+border-size=2
+
+font=FiraCode Nerd Font 12
+
+background-color=#282828
+text-color=#d4be98
+border-color=#7c6f64
+
+default-timeout=10000
+on-button-middle=invoke-default-action
+
+[urgency=low]
+text-color=#928374
+default-timeout=5000
+
+[urgency=critical]
+border-color=#ea6962

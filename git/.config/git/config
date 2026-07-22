@@ -14,12 +14,14 @@
 [interactive]
   diffFilter = delta --color-only
 [delta]
-  syntax-theme = Catppuccin Mocha
-  plus-style = syntax "#1e3a2e"
-  minus-style = syntax "#3a1e2e"
-  line-numbers-plus-style = "#a6e3a1" "#1e3a2e"
-  line-numbers-minus-style = "#f38ba8" "#3a1e2e"
-  line-numbers-zero-style = "#6c7086"
+  syntax-theme = gruvbox-dark
+  plus-style = syntax "#2c3f2e"
+  minus-style = syntax "#3f2c2c"
+  plus-emph-style = syntax "#3d5740"
+  minus-emph-style = syntax "#573d3d"
+  line-numbers-plus-style = "#7fb069" "#2c3f2e"
+  line-numbers-minus-style = "#c08484" "#3f2c2c"
+  line-numbers-zero-style = "#8a7d73"
   navigate = true
   line-number = true
   side-by-side = true

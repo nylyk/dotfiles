@@ -73,11 +73,11 @@
       "critical": 10
     },
     "events": {
-      "on-discharging-warning": "fyi -u normal 'Low Battery'",
-      "on-discharging-critical": "fyi -u critical 'Very Low Battery'",
-      "on-charging-100": "fyi -u normal 'Battery Full'",
-      "on-discharging": "fyi -u normal 'Power Switch' Discharging",
-      "on-charging": "fyi -u normal 'Power Switch' Charging"
+      "on-discharging-warning": "notify-send -u normal 'Low Battery'",
+      "on-discharging-critical": "notify-send -u critical 'Very Low Battery'",
+      "on-charging-100": "notify-send -u normal 'Battery Full'",
+      "on-discharging": "notify-send -u normal 'Power Switch' Discharging",
+      "on-charging": "notify-send -u normal 'Power Switch' Charging"
     },
     "format": "{icon} {capacity}%",
     "format-icons": {

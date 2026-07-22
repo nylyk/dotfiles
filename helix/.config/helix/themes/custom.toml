@@ -1,2 +1,2 @@
-inherits = "catppuccin_mocha"
+inherits = "gruvbox_material_dark_hard"
 "ui.background" = {}
