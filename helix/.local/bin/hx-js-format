@@ -1,0 +1,79 @@
+#!/bin/sh
+# Helix formatter: apply eslint --fix, then prettier.
+#
+# Usage (from languages.toml):
+#   formatter = { command = "hx-js-format", args = ["%{file_path_absolute}"] }
+#
+# Helix expands %{file_path_absolute} to the path of the buffer being formatted,
+# which both tools need: eslint resolves its config from the file's real location
+# (and rejects paths outside the tsconfig project when `projectService` is on),
+# and prettier picks the parser and any path-scoped .prettierrc overrides from it.
+# Neither tool ever touches the file on disk -- the buffer arrives on stdin and
+# the result goes to stdout.
+#
+# Every stage degrades gracefully: if a tool is missing, errors, or produces no
+# output, the input passes through unchanged. Helix replaces the buffer with our
+# stdout, so emitting a partial result would silently corrupt the file.
+#
+# Helix also treats anything on stderr as a formatting failure, so all tool
+# stderr is discarded.
+
+set -u
+
+file="${1:-}"
+
+src="$(cat)"
+[ -n "$src" ] || exit 0
+
+# Scratch buffers have no usable path; prettier and eslint both need one.
+case "$file" in
+    "" | "[scratch]") printf '%s\n' "$src"; exit 0 ;;
+    /*) ;;
+    *) file="$PWD/$file" ;;
+esac
+
+# Prefer the project's local install, then fall back to anything on PATH.
+# Walks up from the file's own directory so monorepo packages find their own.
+find_bin() {
+    dir="$(dirname "$file")"
+    while [ "$dir" != "/" ] && [ -n "$dir" ]; do
+        if [ -x "$dir/node_modules/.bin/$1" ]; then
+            printf '%s\n' "$dir/node_modules/.bin/$1"
+            return 0
+        fi
+        dir="$(dirname "$dir")"
+    done
+    command -v "$1" 2>/dev/null || true
+}
+
+# --- eslint --fix -----------------------------------------------------------
+# --fix-dry-run returns the fixed source in the JSON report's `output` field,
+# which is only present when a fix actually changed something.
+case "$file" in
+    *.js | *.jsx | *.mjs | *.cjs | *.ts | *.tsx | *.mts | *.cts)
+        eslint="$(find_bin eslint)"
+        if [ -n "$eslint" ]; then
+            fixed="$(
+                printf '%s\n' "$src" | "$eslint" \
+                    --stdin \
+                    --stdin-filename "$file" \
+                    --fix-dry-run \
+                    --no-warn-ignored \
+                    --format json 2>/dev/null |
+                    jq -r 'map(.output // empty) | first // empty' 2>/dev/null
+            )" || fixed=""
+            [ -n "$fixed" ] && src="$fixed"
+        fi
+        ;;
+esac
+
+# --- prettier ---------------------------------------------------------------
+# Runs last so prettier has the final say on formatting, matching the usual
+# eslint-then-prettier convention. --stdin-filepath infers the parser.
+prettier="$(find_bin prettier)"
+if [ -n "$prettier" ]; then
+    formatted="$(printf '%s\n' "$src" | "$prettier" --stdin-filepath "$file" 2>/dev/null)" || formatted=""
+    [ -n "$formatted" ] && src="$formatted"
+fi
+
+printf '%s\n' "$src"
