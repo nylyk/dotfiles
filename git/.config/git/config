@@ -24,8 +24,8 @@
   line-numbers-zero-style = "#928374"
   file-style = "#d8a657" bold
   file-decoration-style = "#d8a657" ul
-  hunk-header-style = file line-number syntax
-  hunk-header-decoration-style = "#7daea3" ul
+  hunk-header-style = line-number syntax
+  hunk-header-decoration-style = "#7c6f64" box
   navigate = true
   line-number = true
 [merge]
