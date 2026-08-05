@@ -29,10 +29,10 @@ fish_add_path $CARGO_HOME/bin
 fish_add_path $PNPM_HOME/bin
 
 alias ls="eza -la --group-directories-first"
-alias cd="z"
+alias z="zellij attach -c"
 
 if status is-interactive
     fastfetch
 end
 
-zoxide init fish | source
+zoxide init fish --cmd cd | source

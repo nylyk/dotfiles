@@ -1,0 +1,7 @@
+theme "gruvbox-material"
+default_layout "compact"
+
+pane_frames false
+simplified_ui true
+show_startup_tips false
+show_release_notes false

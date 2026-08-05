@@ -3,6 +3,8 @@ font-size = 16
 font-feature = ss03
 font-thicken = true
 
+macos-option-as-alt = left
+
 window-padding-x = 6
 window-padding-y = 6
 
