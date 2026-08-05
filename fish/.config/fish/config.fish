@@ -15,7 +15,11 @@ set -gx EDITOR hx
 set -gx MANPAGER "sh -c 'col -bx | bat -l man -p'"
 set -gx MANROFFOPT -c
 set -gx GPG_TTY (tty)
-set -gx SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.socket
+
+# macOS has no XDG_RUNTIME_DIR; launchd already exports a working SSH_AUTH_SOCK there
+if test -n "$XDG_RUNTIME_DIR"
+    set -gx SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.socket
+end
 
 set -gx CARGO_HOME "$HOME/.cargo"
 set -gx PNPM_HOME "$HOME/.local/share/pnpm"
