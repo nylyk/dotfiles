@@ -2,11 +2,10 @@ theme = "custom"
 
 [editor]
 color-modes = true
-shell = ["nu", "-c"]
+shell = ["fish", "-c"]
 bufferline = "always"
 cursorline = true
 line-number = "relative"
-completion-timeout = 50
 mouse = false
 
 [editor.statusline]
@@ -29,14 +28,3 @@ git-ignore = false
 [editor.indent-guides]
 render = true
 character = "▏"
-
-[keys.normal]
-pageup = "half_page_up"
-pagedown = "half_page_down"
-
-[keys.normal.space]
-"q" = ":bc"
-
-[keys.insert]
-"C-space" = "completion"
-

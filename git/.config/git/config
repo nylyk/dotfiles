@@ -8,6 +8,23 @@
   defaultBranch = main
 [pull]
   rebase = true
+[rebase]
+  autoStash = true
+  updateRefs = true
+[rerere]
+  enabled = true
+  autoUpdate = false
+[branch "develop"]
+  rebase = false
+[branch "main"]
+  rebase = false
+[branch "master"]
+  rebase = false
+[push]
+  autoSetupRemote = true
+[fetch]
+  prune = true
+  pruneTags = true
 
 [core]
   pager = delta
