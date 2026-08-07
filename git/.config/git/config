@@ -27,6 +27,6 @@
   hunk-header-style = line-number syntax
   hunk-header-decoration-style = "#7c6f64" box
   navigate = true
-  line-number = true
+  line-numbers = true
 [merge]
   conflictStyle = zdiff3
