@@ -3,10 +3,12 @@ font-size = 16
 font-feature = ss03
 font-thicken = true
 
-macos-option-as-alt = left
-
 window-padding-x = 6
 window-padding-y = 6
+
+macos-option-as-alt = left
+keybind = alt+left=unbind
+keybind = alt+right=unbind
 
 background-opacity = 0.95
 background-blur = 10
