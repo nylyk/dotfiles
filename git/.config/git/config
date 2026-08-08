@@ -31,16 +31,19 @@
 [interactive]
   diffFilter = delta --color-only
 [delta]
-  syntax-theme = gruvbox-dark
-  plus-style = syntax "#2c3f2e"
-  minus-style = syntax "#3f2c2c"
-  plus-emph-style = syntax "#3d5740"
-  minus-emph-style = syntax "#573d3d"
-  line-numbers-plus-style = "#7fb069" "#2c3f2e"
-  line-numbers-minus-style = "#c08484" "#3f2c2c"
-  line-numbers-zero-style = "#8a7d73"
+  syntax-theme = gruvbox-material
+  plus-style = syntax "#0d2900"
+  minus-style = syntax "#3e0c00"
+  plus-emph-style = syntax "#024700"
+  minus-emph-style = syntax "#72030a"
+  line-numbers-plus-style = "#a9b665" "#0d2900"
+  line-numbers-minus-style = "#ea6962" "#3e0c00"
+  line-numbers-zero-style = "#928374"
+  file-style = "#d8a657" bold
+  file-decoration-style = "#d8a657" ul
+  hunk-header-style = line-number syntax
+  hunk-header-decoration-style = "#7c6f64" box
   navigate = true
-  line-number = true
-  side-by-side = true
+  line-numbers = true
 [merge]
   conflictStyle = zdiff3

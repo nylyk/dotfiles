@@ -1,0 +1,40 @@
+git:
+  diffContextSize: 10
+  diffRenderers:
+    - command: delta --paging=never
+
+gui:
+  nerdFontsVersion: '3'
+  theme:
+    activeBorderColor:
+      - '#d8a657'
+      - bold
+    inactiveBorderColor:
+      - '#928374'
+    searchingActiveBorderColor:
+      - '#e78a4e'
+      - bold
+    optionsTextColor:
+      - '#7daea3'
+    selectedLineBgColor:
+      - '#5a524c'
+    inactiveViewSelectedLineBgColor:
+      - '#45403d'
+    cherryPickedCommitFgColor:
+      - '#282828'
+    cherryPickedCommitBgColor:
+      - '#89b482'
+    markedBaseCommitFgColor:
+      - '#282828'
+    markedBaseCommitBgColor:
+      - '#d8a657'
+    unstagedChangesColor:
+      - '#ea6962'
+    defaultFgColor:
+      - '#d4be98'
+  branchColorPatterns:
+    '^(main|master|develop)$': '#a9b665'
+    '^feature/': '#7daea3'
+    '^(fix|hotfix|bugfix)/': '#ea6962'
+    '^release/': '#e78a4e'
+    '^(chore|refactor|docs|test)/': '#d3869b'

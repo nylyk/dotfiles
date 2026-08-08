@@ -1,0 +1,31 @@
+(defcfg
+  process-unmapped-keys yes
+  tap-hold-require-prior-idle 150
+  ;; optional: restrict to the built-in keyboard.
+  ;; run `sudo kanata --list` and paste the exact name
+  ;; macos-dev-names-include ("Apple Internal Keyboard / Trackpad")
+)
+
+(defvar
+  qt 150   ;; quick-tap-ms
+  tt 225   ;; tapping-term-ms
+)
+
+(defalias
+  hra (tap-hold-release $qt $tt a lmet)
+  hrs (tap-hold-release $qt $tt s lalt)
+  hrd (tap-hold-release $qt $tt d lsft)
+  hrf (tap-hold-release $qt $tt f lctl)
+  hrj (tap-hold-release $qt $tt j rctl)
+  hrk (tap-hold-release $qt $tt k rsft)
+  hrl (tap-hold-release $qt $tt l lalt)
+  hrp (tap-hold-release $qt $tt ; rmet)
+)
+
+(defsrc
+  a     s     d     f     j     k     l     ;
+)
+
+(deflayer base
+  @hra  @hrs  @hrd  @hrf  @hrj  @hrk  @hrl  @hrp
+)
