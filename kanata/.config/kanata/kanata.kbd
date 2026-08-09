@@ -22,10 +22,19 @@
   hrp (tap-hold-release $qt $tt ; rmet)
 )
 
+;; The f-row and Caps Lock must be remapped here rather than in System Settings:
+;; kanata re-emits every key from the Karabiner virtual keyboard, so macOS's
+;; per-device Modifier Keys and f-row settings no longer apply to what it sees.
+;; F3/F4 have no HID keycode, so they send the equivalent shortcuts instead.
+
 (defsrc
+  f1    f2    f3    f4    f7    f8    f9    f10   f11   f12
+  caps
   a     s     d     f     j     k     l     ;
 )
 
 (deflayer base
+  brdown brup C-up  M-spc prev  pp    next  mute  vold  volu
+  esc
   @hra  @hrs  @hrd  @hrf  @hrj  @hrk  @hrl  @hrp
 )
