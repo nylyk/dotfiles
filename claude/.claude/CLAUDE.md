@@ -6,6 +6,7 @@
 - When presenting options, give a recommendation with reasoning; don't dump equal choices on me
 - If uncertain, say "I'm not sure" instead of guessing confidently
 - Plan before implementing anything non-trivial; wait for approval
+- A question is a question: answer it in prose and stop. "Why is X like this?" and "Should we do Y instead?" are not approval to change anything — wait until I say to
 
 ## KISS & scope
 - Clean code, KISS, SOLID. Implement the simplest solution that solves the actual problem
@@ -17,10 +18,13 @@
 - When you discover mid-task that the plan was wrong, say so immediately instead of patching around it
 
 ## Comments
-- Default to none, and when in doubt leave it out. Code and naming should explain themselves. Doc comments stay short — what a function does, not how
-- Write for a first-time reader who never saw the diff. Never comment to justify a change or decision, to argue with an alternative that is not in the code, to restate the code, or to narrate history ("previously", "now", "instead of")
-- The ONLY allowed comment states something the code cannot: an external constraint (upstream bug, protocol quirk, legal requirement), or a non-obvious invariant whose violation is silent and costly
-- That exception is narrow, not a licence. It does NOT cover: standard language or framework behaviour a competent reader of this codebase already knows, why the code is arranged the way it is, or "don't move / don't change this" notes. If the reason is documented behaviour of a tool in use, no comment
+- Default to none, and when in doubt leave it out. Code and naming must explain themselves; rename before you reach for a comment, because a comment is an admission the name failed
+- A doc comment is allowed only where the name alone cannot carry what the item does, and then at most two lines saying what it does — never how, never why. If a better name removes the need, use the better name instead
+- No module- or file-level doc blocks. A rule binding a whole file, module or package goes in the project's agent instructions file, where it governs everything at once and cannot drift out of sync with the code it describes. The name of a module or file must explain what its contents are about.
+- Write for a first-time reader who never saw the diff, and who therefore cannot see what is absent. Never comment on an absence, a removal, or a road not taken — the subject of such a comment does not exist on the page, so it describes a diff rather than a codebase, and it is unreadable the moment the diff scrolls out of history
+- Never comment to justify a change or decision, to argue with an alternative that is not in the code, to restate the code, or to narrate history ("previously", "now", "instead of", "no longer", "deliberately not")
+- The ONLY allowed inline comment states something the code cannot: an external constraint (upstream bug, protocol quirk, legal requirement), or a non-obvious invariant whose violation is silent and costly
+- That exception is narrow, not a licence. It does NOT cover: standard language or framework behaviour a competent reader of this codebase already knows, why the code is arranged the way it is, design rationale (that goes in the design doc, if there is one), or "don't move / don't change this" notes. If the reason is documented behaviour of a tool in use, no comment
 
 ## Commit messages
 - Conventional commits
