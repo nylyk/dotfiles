@@ -10,6 +10,7 @@
   "awaySummaryEnabled": false,
   "skipWorkflowUsageWarning": true,
   "theme": "dark",
+  "cleanupPeriodDays": 7,
   "env": {
     "CLAUDE_CODE_SCROLL_SPEED": "0.25"
   },
