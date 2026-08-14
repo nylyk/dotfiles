@@ -44,7 +44,7 @@
     {
       "type": "packages",
       "key": "packages",
-      "format": "{}"
+      "format": "{all}"
     },
     {
       "type": "uptime",
