@@ -21,6 +21,11 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl --player=spotify previous"))
 hl.bind("SUPER + CTRL + T", hl.dsp.exec_cmd([[playerctl -p spotify metadata --format '{{artist}} - {{title}}' | tr -d '\n' | wl-copy]]))
 hl.bind("SUPER + CTRL + A", hl.dsp.exec_cmd([[playerctl -p spotify metadata --format '{{xesam:album}}' | tr -d '\n' | wl-copy]]))
 
+------------------ Monitor brightness ------------------
+
+hl.bind("SUPER + CTRL + plus",  hl.dsp.exec_cmd("~/.config/hypr/brightness.sh up"),   { repeating = true })
+hl.bind("SUPER + CTRL + minus", hl.dsp.exec_cmd("~/.config/hypr/brightness.sh down"), { repeating = true })
+
 ------------------ Screenshots ------------------
 
 hl.bind("Print",         hl.dsp.exec_cmd([[g=$(slurp -d) && [ -n "$g" ] && grim -g "$g" - | tee /storage/tmp/latest_screenshot.png | wl-copy --type image/png]]))

@@ -34,6 +34,7 @@ hl.env("HYPRCURSOR_SIZE", "24")
 ------------------ Autostart ------------------
 
 hl.on("hyprland.start", function()
+    hl.exec_cmd("~/.config/hypr/brightness.sh init")
     hl.exec_cmd("~/.config/hypr/reload-waybar-swaybg.sh")
     hl.exec_cmd("~/.config/hypr/idle.sh")
     hl.exec_cmd("mako")
