@@ -2,7 +2,7 @@ require("binds")
 
 ------------------ Monitors ------------------
 
-hl.monitor({
+local mainMonitor = {
     output   = "DP-1",
     mode     = "2560x1440@180",
     position = "1080x1440",
@@ -10,10 +10,20 @@ hl.monitor({
     vrr      = 1,
     bitdepth = 10,
     cm       = "dp3",
-})
+}
+
+hl.monitor(mainMonitor)
 hl.monitor({ output = "DP-2",     mode = "1920x1080@75", position = "3640x1440", scale = 1,   transform = 3 })
 hl.monitor({ output = "DP-3",     mode = "3840x2160@60", position = "1080x0",    scale = 1.5 })
 hl.monitor({ output = "HDMI-A-1", mode = "1920x1080@75", position = "0x1440",    scale = 1,   transform = 1 })
+
+local hdrEnabled = false
+
+hl.bind("SUPER + CTRL + H", function()
+    hdrEnabled = not hdrEnabled
+    mainMonitor.cm = hdrEnabled and "hdr" or "dp3"
+    hl.monitor(mainMonitor)
+end)
 
 hl.config({
     render = {
@@ -46,7 +56,7 @@ end)
 
 ------------------ Window rules ------------------
 
-hl.window_rule({ match = { class = "^foot" },           no_auto_hdr = true })
+hl.window_rule({ match = { class = "negative:^mpv$" }, no_auto_hdr = true })
 hl.window_rule({ match = { class = "^foot_floating$" }, float = true, size = { 1100, 680 } })
 hl.window_rule({ match = { class = "^[Ss]ignal$" },     workspace = "6 silent" })
 hl.window_rule({ match = { class = "^[Ss]potify$" },    workspace = "6 silent" })
