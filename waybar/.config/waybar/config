@@ -10,6 +10,7 @@
     "clock"
   ],
   "modules-right": [
+    "custom/openrouter",
     "tray",
     "cpu",
     "memory",
@@ -57,6 +58,13 @@
   "tray": {
     "icon-size": 21,
     "spacing": 10
+  },
+  "custom/openrouter": {
+    "interval": 30,
+    "return-type": "json",
+    "format": "󰚩 {}",
+    "exec": "~/.config/waybar/openrouter.sh",
+    "on-click": "xdg-open https://openrouter.ai/activity"
   },
   "cpu": {
     "interval": 5,

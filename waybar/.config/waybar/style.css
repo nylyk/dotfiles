@@ -29,6 +29,7 @@
 }
 
 #custom-music,
+#custom-openrouter,
 #clock,
 #tray,
 #cpu,
@@ -46,6 +47,11 @@
 }
 
 #tray {
+  margin-right: 7px;
+}
+
+#custom-openrouter {
+  color: #d3869b; /* purple */
   margin-right: 7px;
 }
 
