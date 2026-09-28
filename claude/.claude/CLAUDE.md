@@ -36,6 +36,7 @@ That second exception is narrow. It does NOT cover:
 - "don't move this" / "don't change this" notes
 
 General rules:
+- Write every comment as a declarative statement, never a headline fragment or a bare verb phrase. Open by naming the thing ("Stored in the database in place of the code."), and give each clause after the first an explicit subject ("The code is normalized first, so a lower-case or padded code cannot fail to match."). Not: "What the database stores in place of the code. Normalizes first, so ..." — a question as a heading, then a verb with nothing to attach to.
 - No module-, file-, or package-level doc blocks. A rule binding a whole file goes in the project's agent instructions file. There it governs everything at once and cannot drift out of sync. A module or file name must explain what its contents are about.
 - Write for a first-time reader who never saw the diff. They cannot see what is absent, so never comment on an absence, a removal, or a road not taken. Such a comment describes a diff, not a codebase.
 - Never comment to restate the code, to justify a decision, to argue with an alternative that is not in the code, or to narrate history. Banned words in comments: "previously", "now", "instead of", "no longer", "deliberately", "note that", "this is why", "we don't".

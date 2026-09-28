@@ -6,8 +6,7 @@ shell = ["fish", "-c"]
 bufferline = "always"
 cursorline = true
 line-number = "relative"
-scroll-lines = 5
-mouse = false
+scroll-lines = 2
 
 [editor.soft-wrap]
 enable = true
