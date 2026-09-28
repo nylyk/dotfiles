@@ -1,26 +1,13 @@
 {
-  "enabledPlugins": {
-    "rust-analyzer-lsp@claude-plugins-official": true,
-    "typescript-lsp@claude-plugins-official": true
+  "cleanupPeriodDays": 7,
+  "env": {
+    "CLAUDE_CODE_SCROLL_SPEED": "0.25"
   },
   "attribution": {
     "commit": "",
     "pr": ""
   },
   "model": "opus[1m]",
-  "effortLevel": "medium",
-  "tui": "fullscreen",
-  "theme": "dark",
-  "awaySummaryEnabled": false,
-  "skipWorkflowUsageWarning": true,
-  "cleanupPeriodDays": 7,
-  "statusLine": {
-    "type": "command",
-    "command": "bash ~/.claude/statusline.sh"
-  },
-  "env": {
-    "CLAUDE_CODE_SCROLL_SPEED": "0.25"
-  },
   "hooks": {
     "PostToolUse": [
       {
@@ -35,5 +22,23 @@
         ]
       }
     ]
-  }
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash ~/.claude/statusline.sh"
+  },
+  "enabledPlugins": {
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true
+  },
+  "effortLevel": "medium",
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "high"
+    }
+  },
+  "awaySummaryEnabled": false,
+  "tui": "fullscreen",
+  "skipWorkflowUsageWarning": true,
+  "theme": "dark"
 }
